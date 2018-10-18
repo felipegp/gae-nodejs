@@ -5,4 +5,4 @@ const jwtUtil = require('../../api/util/JWTUtil');
 
 router.post('/people', jwtUtil.formatToken, exampleController.getPersonList);
 
-module.exports = router; 
+module.exports = router;

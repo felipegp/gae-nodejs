@@ -22,18 +22,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors({origin: 'http://localhost:4200'}))
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use('/', indexRouter);
 app.use('/api', api);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -43,9 +43,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/test', { })
-.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/test`)})
-.catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/test`)})
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/test', {})
+  .then(() => { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/test`); })
+  .catch(() => { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/test`); });
 
 module.exports = app;

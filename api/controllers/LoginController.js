@@ -9,19 +9,20 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-    login: function (req, res) {
-        //MOCK USER
-        const user = {
-            id: 1,
-            name: 'Joe',
-            email: 'joe@gmail.com'
-        }
+  login: function (req, res) {
+    // MOCK USER
+    const user = {
+      id: 1,
+      name: 'Joe',
+      email: 'joe@gmail.com'
+    };
 
-        jwt.sign({user}, 'secretkey', { expiresIn: '90s' }, (err, token) => {
-            res.json({
-                token
-            });
-        })
-    }
+    jwt.sign({ user }, 'secretkey', { expiresIn: '90s' }, (err, token) => {
+      console.log('error: ', err);
+
+      res.json({
+        token
+      });
+    });
+  }
 };
-
