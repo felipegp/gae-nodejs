@@ -15,5 +15,10 @@ module.exports = {
         };
 
         utilsService.nativeRequest(options, callback, { foo: data })
+    },
+
+    addTwoNumbers: function(x, y) {
+        return x + y;
     }
+      
 }
