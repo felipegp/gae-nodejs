@@ -2,13 +2,16 @@
   "name": "appengine-nodejs-backend",
   "version": "0.0.1",
   "private": true,
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "start": "nodemon ./bin/www",
     "deploy": "gcloud app deploy",
     "lint": "repo-tools lint",
     "pretest": "npm run lint",
     "system-test": "repo-tools test app",
-    "test": "npm run system-test",
+    "test": "mocha",
     "e2e-test": "repo-tools test deploy"
   },
   "engines": {

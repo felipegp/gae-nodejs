@@ -10,9 +10,9 @@ const exampleService = require('../services/ExampleService');
 const jwt = require('jsonwebtoken');
 
 const listExample = [
-    { name: "Jane Doe", age: "27"},
-    { name: "Sam Will", age: "53"},
-    { name: "Bob White", age: "12"}
+    { name: "Jane Doe", age: "27" },
+    { name: "Sam Will", age: "53" },
+    { name: "Bob White", age: "12" }
 ];
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
         jwt.verify(req.token, 'secretkey', (err, authData) => {
             if (err) {
                 res.sendStatus(403);
-            
+
             } else {
                 if (req.body && req.body.age) {
                     const result = listExample.filter(person => person.age > req.body.age);
@@ -32,4 +32,3 @@ module.exports = {
         });
     }
 };
-
